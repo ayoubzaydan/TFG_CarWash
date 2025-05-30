@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F9FC">
+
+    <!-- ScrollView que ocupa el 90% del espacio -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AUTOSERVICIO"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#001D75"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:id="@+id/imgSelfServe"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/autoservicio"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El servicio de autoservicio permite a los clientes lavar su propio vehículo utilizando las instalaciones del centro. Proporciona flexibilidad y control total sobre el proceso de lavado, permitiendo a los usuarios elegir cómo y cuándo limpiar su coche."
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvBenefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Beneficios:\n- Control total del lavado\n- Económico y rápido\n- Disponible las 24 horas\n- Ideal para usuarios que prefieren hacerlo ellos mismos"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💰 Precio: 5€ por 10 minutos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#001D75"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⏱ Duración: Depende del usuario"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#001D75" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Menú inferior visible siempre -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="unlabeled" />
+</LinearLayout>

@@ -1,0 +1,103 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registro"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="#001D75"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Nombre completo"
+            android:paddingStart="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/edittext_background" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/phoneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:paddingStart="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Dirección"
+            android:inputType="textPostalAddress"
+            android:paddingStart="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/matriculaEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Matricula del vehículo"
+            android:inputType=""
+            android:paddingStart="12dp"
+            android:background="@drawable/edittext_background"
+            android:layout_marginBottom="16dp" />
+
+
+
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:textSize="14sp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Registrarse"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#001D75"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+</ScrollView>

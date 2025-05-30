@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F9FC">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:clipToPadding="false"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LAVADO SIN AGUA"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#001D75"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <ImageView
+                android:id="@+id/imgWaterlessWash"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sinagua"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Lavado sin agua" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="El lavado sin agua es una alternativa ecológica al lavado tradicional. Utiliza productos especializados que limpian y protegen la superficie del vehículo sin necesidad de enjuague, reduciendo significativamente el consumo de agua."
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvBenefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Beneficios:\n- Ahorro total de agua\n- Fácil aplicación en cualquier lugar\n- Protección adicional a la pintura\n- Ideal para interiores y exteriores"
+                android:textSize="16sp"
+                android:textColor="#444444"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="💰 Precio: 20€"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#001D75"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⏱ Duración: 25-35 minutos"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#001D75" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- Menú de navegación inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@android:color/white"
+        app:menu="@menu/bottom_nav_menu"
+        app:labelVisibilityMode="unlabeled" />
+
+</LinearLayout>
