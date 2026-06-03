@@ -2,6 +2,8 @@ package com.example.tfg_carwash
 
 import com.example.tfg_carwash.localData.AppDatabase
 import com.example.tfg_carwash.localData.UserEntity
+import com.example.tfg_carwash.localData.DatabaseInstance
+import com.example.tfg_carwash.utils.PasswordUtils
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -36,10 +38,7 @@ class RegisterActivity : AppCompatActivity() {
         errorTextView = findViewById(R.id.errorTextView)
         registerButton = findViewById(R.id.registerButton)
 
-        db = androidx.room.Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "carwash-db"
-        ).allowMainThreadQueries().build() // solo para pruebas
+        db = DatabaseInstance.getDatabase(this)
 
         registerButton.setOnClickListener {
             errorTextView.visibility = View.GONE
@@ -49,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
             val phone = phoneEditText.text.toString().trim()
             val address = addressEditText.text.toString().trim()
-            val matricula = matriculaEditText.toString().trim()
+            val matricula = matriculaEditText.text.toString().trim()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
                 errorTextView.text = "Por favor, completa todos los campos"
@@ -68,10 +67,16 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            if (db.userDao().getUserByEmail(email) != null) {
+                errorTextView.text = "Ya existe una cuenta con ese email"
+                errorTextView.visibility = View.VISIBLE
+                return@setOnClickListener
+            }
+
             val user = UserEntity(
                 name = name,
                 email = email,
-                password = password,
+                password = PasswordUtils.hash(password),
                 phone = phone,
                 address = address,
                 matricula = matricula

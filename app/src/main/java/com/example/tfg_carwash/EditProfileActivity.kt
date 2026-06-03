@@ -1,6 +1,7 @@
 package com.example.tfg_carwash
 
 import com.example.tfg_carwash.model.UserModel
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -20,7 +21,12 @@ class EditProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
 
-        val user = intent.getSerializableExtra("user") as? UserModel
+        val user = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra("user", UserModel::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getSerializableExtra("user") as? UserModel
+        }
 
         nameEdit = findViewById(R.id.editName)
         emailEdit = findViewById(R.id.editEmail)

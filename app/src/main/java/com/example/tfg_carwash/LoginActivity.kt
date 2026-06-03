@@ -1,12 +1,13 @@
 package com.example.tfg_carwash
 
 import com.example.tfg_carwash.localData.AppDatabase
+import com.example.tfg_carwash.localData.DatabaseInstance
+import com.example.tfg_carwash.utils.PasswordUtils
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tfg_carwash.localData.DatabaseInstance
 
 class LoginActivity : AppCompatActivity() {
 
@@ -54,8 +55,10 @@ class LoginActivity : AppCompatActivity() {
 
             // ✅ Buscar usuario por email (asegúrate de tener este método en UserDao)
             val user = db.userDao().getUserByEmail(email)
+            val hashedPassword = PasswordUtils.hash(password)
+            val isValidPassword = user != null && (user.password == password || user.password == hashedPassword)
 
-            if (user != null && user.password == password) {
+            if (isValidPassword) {
                 // ✅ Guardar sesión
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("userId", user.id)
